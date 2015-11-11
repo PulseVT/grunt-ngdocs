@@ -286,9 +286,9 @@ docsApp.controller.DocsController = function($scope, $location, $window, section
     $scope.sections[(NG_DOCS.html5Mode ? '' : '#/') + url] = section;
   });
   $scope.$watch(function docsPathWatch() {return $location.path(); }, function docsPathWatchAction(path) {
-    var sections = _.keys($scope.sections), section, index;
-    for(var i=0;i<sections.length;i++){
-      section = sections[i];
+    var sectionKeys = _.keys($scope.sections), section, index;
+    for(var i=0;i<sectionKeys.length;i++){
+      section = sectionKeys[i];
       index = path.indexOf(section);
       if(index > -1){
         path = path.substr(index);
@@ -296,12 +296,14 @@ docsApp.controller.DocsController = function($scope, $location, $window, section
     }
 
     var parts = path.split('/');
-    var  sectionId = parts[1];
-    var  partialId = parts[2];
+    var  sectionId = parts[0];
+    var  partialId = parts[1];
     var page,
       sectionName = $scope.sections[(NG_DOCS.html5Mode ? '' : '#/') + sectionId];
 
-    if (!sectionName) { return; }
+    if (!sectionName) {
+      return;
+    }
 
     $scope.currentPage = page = sections.getPage(sectionId, partialId);
 

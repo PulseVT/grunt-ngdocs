@@ -1,6 +1,6 @@
 {
   "name": "grunt-ngdocs-pvt",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Modifications for original m7r/grunt-ngdocs plugin for angularjs documentation generation",
   "main": "tasks",
   "repository": {

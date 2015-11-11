@@ -30,7 +30,7 @@ module.exports = function(grunt) {
         done = this.async(),
         options = this.options({
           dest: 'docs/',
-          startPage: '/api',
+          startPage: '/main',
           scripts: ['angular.js'],
           styles: [],
           title: pkg.title || pkg.name || '',
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
           editLink: true,
           inlinePartials: false
         }),
-        section = this.target === 'all' ? 'api' : this.target,
+        section = this.target === 'all' ? 'main' : this.target,
         setup;
 
     //Copy the scripts into their own folder in docs, unless they are remote or default angular.js
