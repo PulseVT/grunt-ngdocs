@@ -1,11 +1,11 @@
 {
-  "name": "grunt-ngdocs",
-  "version": "0.2.9",
-  "description": "grunt plugin for angularjs documentation",
+  "name": "grunt-ngdocs-pvt",
+  "version": "1.0.0",
+  "description": "Modifications for original m7r/grunt-ngdocs plugin for angularjs documentation generation",
   "main": "tasks",
   "repository": {
     "type": "git",
-    "url": "https://github.com/m7r/grunt-ngdocs.git"
+    "url": "https://github.com/PulseVT/grunt-ngdocs"
   },
   "keywords": [
     "gruntplugin",
