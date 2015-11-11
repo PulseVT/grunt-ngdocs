@@ -286,10 +286,20 @@ docsApp.controller.DocsController = function($scope, $location, $window, section
     $scope.sections[(NG_DOCS.html5Mode ? '' : '#/') + url] = section;
   });
   $scope.$watch(function docsPathWatch() {return $location.path(); }, function docsPathWatchAction(path) {
-    var parts = path.split('/'),
-      sectionId = parts[1],
-      partialId = parts[2],
-      page, sectionName = $scope.sections[(NG_DOCS.html5Mode ? '' : '#/') + sectionId];
+    var sections = _.keys($scope.sections), section, index;
+    for(var i=0;i<sections.length;i++){
+      section = sections[i];
+      index = path.indexOf(section);
+      if(index > -1){
+        path = path.substr(index);
+      }
+    }
+
+    var parts = path.split('/');
+    var  sectionId = parts[1];
+    var  partialId = parts[2];
+    var page,
+      sectionName = $scope.sections[(NG_DOCS.html5Mode ? '' : '#/') + sectionId];
 
     if (!sectionName) { return; }
 
